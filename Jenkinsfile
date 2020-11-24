@@ -1,19 +1,21 @@
 pipeline {
   agent any
   stages {
-    stage('Cleaning Stage') {
+    stage('Parallel processing') {
       steps {
-        bat 'mvn clean'
-      }
-    }
-    stage('Testing Stage') {
-      steps {
-        bat 'mvn clean'
-      }
-    }
-    stage('Packaging Stage') {
-      steps {
-        bat 'mvn package'
+        parallel {
+          a: {
+            bat 'mvn clean'
+          },
+          b: {
+            bat 'mvn test'
+          },
+          c: {
+            bat 'mvn package'
+          }
+
+        }
+
       }
     }
     stage('Email Stage') {
@@ -23,7 +25,7 @@ pipeline {
         cc: 'aravindnk22@gmail.com',
         from: 'aravindnk22@rediffmail.com',
         replyTo: '',
-        subject: 'Jenkins Declarative pipeline: ${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${env.BUILD_STATUS}!',
+        subject: 'Jenkins Declarative pipeline: "${env.JOB_NAME}" - Build # "${env.BUILD_NUMBER}" - "${env.BUILD_STATUS}"!',
         to: 'aravindnk22@rediffmail.com'
       }
     }
