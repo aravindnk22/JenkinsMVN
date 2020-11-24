@@ -19,11 +19,11 @@ pipeline {
     stage('Email Stage') {
       steps {
         mail bcc: '',
-        body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:',
+        body: '${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${env.BUILD_STATUS}',
         cc: 'aravindnk22@gmail.com',
         from: 'aravindnk22@rediffmail.com',
         replyTo: '',
-        subject: 'Jenkins Declarative pipeline: $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!',
+        subject: 'Jenkins Declarative pipeline: ${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${env.BUILD_STATUS}!',
         to: 'aravindnk22@rediffmail.com'
       }
     }
