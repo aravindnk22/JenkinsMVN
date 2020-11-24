@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="24420" started-at="2020-11-23T17:23:58Z" finished-at="2020-11-23T17:24:23Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="24420" started-at="2020-11-23T17:23:58Z" finished-at="2020-11-23T17:24:23Z">
+      <class name="com.trn.jen.DemoTest">
+        <test-method status="PASS" signature="addNumtest()[pri:0, instance:com.trn.jen.DemoTest@3703bf3c]" name="addNumtest" duration-ms="48" started-at="2020-11-23T17:23:58Z" finished-at="2020-11-23T17:23:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addNumtest -->
+        <test-method status="PASS" signature="subNumtest()[pri:0, instance:com.trn.jen.DemoTest@3703bf3c]" name="subNumtest" duration-ms="1" started-at="2020-11-23T17:23:58Z" finished-at="2020-11-23T17:23:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- subNumtest -->
+      </class> <!-- com.trn.jen.DemoTest -->
+      <class name="com.trn.jen.SampleSeleniumTest">
+        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.trn.jen.SampleSeleniumTest@34cf5a97]" name="startBrowser" is-config="true" duration-ms="8902" started-at="2020-11-23T17:23:58Z" finished-at="2020-11-23T17:24:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startBrowser -->
+        <test-method status="PASS" signature="validateGoogleId()[pri:0, instance:com.trn.jen.SampleSeleniumTest@34cf5a97]" name="validateGoogleId" duration-ms="14693" started-at="2020-11-23T17:24:07Z" finished-at="2020-11-23T17:24:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateGoogleId -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.trn.jen.SampleSeleniumTest@34cf5a97]" name="closeBrowser" is-config="true" duration-ms="647" started-at="2020-11-23T17:24:22Z" finished-at="2020-11-23T17:24:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.trn.jen.SampleSeleniumTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>
