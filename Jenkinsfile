@@ -5,13 +5,13 @@ pipeline {
       steps {
         parallel {
           a: {
-            bat 'mvn clean'
+            bat "mvn clean"
           },
           b: {
-            bat 'mvn test'
+            bat "mvn test"
           },
           c: {
-            bat 'mvn package'
+            bat "mvn package"
           }
 
         }
