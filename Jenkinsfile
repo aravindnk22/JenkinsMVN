@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Parallel processing') {
       steps {
-        parallelparallel(
+        parallel(
         a: {
           bat "mvn clean"
         },
