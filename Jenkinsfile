@@ -3,22 +3,21 @@ pipeline {
   stages {
     stage('Parallel processing') {
       steps {
-        parallel {
-          a: {
-            bat "mvn clean"
-          },
-          b: {
-            bat "mvn test"
-          },
-          c: {
-            bat "mvn package"
+          parallel{
+              a:{
+               bat "mvn clean"
+              },
+              b:{
+               bat "mvn test"
+              },
+              c:{
+               bat "mvn package"
+              }
+              
           }
-
-        }
-
-      }
+       
     }
-    stage('Email Stage') {
+  }    stage('Email Stage') {
       steps {
         mail bcc: '',
         body: '${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${env.BUILD_STATUS}',
@@ -29,5 +28,5 @@ pipeline {
         to: 'aravindnk22@rediffmail.com'
       }
     }
-  }
+}
 }
