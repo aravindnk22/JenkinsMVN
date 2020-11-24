@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage("Parallel Execution") {
+    stage('Parallel processing') {
       steps {
-        parallel(
+        parallelparallel(
         a: {
           bat "mvn clean"
         },
@@ -13,15 +13,17 @@ pipeline {
         c: {
           bat "mvn package"
         })
+
       }
     }
-    stage("Email Build Status") {
+    stage('Email Stage') {
       steps {
-        mail
-        from: 'aravindnk22@rediffmail.com',
+        mail bcc: '',
+        body: '${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${env.BUILD_STATUS}',
         cc: 'aravindnk22@gmail.com',
-        body: "${env.JOB_NAME}  - Build # ${env.BUILD_NUMBER}  - ${currentBuild.currentResult} \n\nCheck console output at ${env.BUILD_URL} to view the results.",
-        subject: "${env.JOB_NAME}  - Build # ${env.BUILD_NUMBER}  - ${currentBuild.currentResult}!!",
+        from: 'aravindnk22@rediffmail.com',
+        replyTo: '',
+        subject: 'Jenkins Declarative pipeline: "${env.JOB_NAME}" - Build # "${env.BUILD_NUMBER}" - "${env.BUILD_STATUS}"!',
         to: 'aravindnk22@rediffmail.com'
       }
     }
