@@ -16,14 +16,13 @@ pipeline {
 
       }
     }
-    stage('Email Stage') {
+    stage("Email Build Status") {
       steps {
-        mail bcc: '',
-        body: '${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${env.BUILD_STATUS}',
+        mail
         cc: 'aravindnk22@gmail.com',
         from: 'aravindnk22@rediffmail.com',
-        replyTo: '',
-        subject: 'Jenkins Declarative pipeline: "${env.JOB_NAME}" - Build # "${env.BUILD_NUMBER}" - "${env.BUILD_STATUS}"!',
+        body: "${env.JOB_NAME}  - Build # ${env.BUILD_NUMBER}  - ${currentBuild.currentResult} \n\nCheck console output at ${env.BUILD_URL} to view the results.",
+        subject: "${env.JOB_NAME}  - Build # ${env.BUILD_NUMBER}  - ${currentBuild.currentResult}!!",
         to: 'aravindnk22@rediffmail.com'
       }
     }
